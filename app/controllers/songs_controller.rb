@@ -3,8 +3,10 @@ class SongsController < ApplicationController
     binding.pry
     if params[:artist_id]
       @songs = Artist.find(params[:artist_id]).songs
-    else
+    elsif params[:artist_id].equal?(nil)
       @songs = Song.all
+    else
+      flash[:alert] = "Artist not found."
     end
   end
 
