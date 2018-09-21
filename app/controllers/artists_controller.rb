@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
       @artist = Artist.find(params[:artist_id])
     else
     @artists = Artist.all
-  end
+    end
   end
 
   def show
