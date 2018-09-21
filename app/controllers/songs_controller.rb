@@ -12,7 +12,7 @@ class SongsController < ApplicationController
 
   def show
     if params[:artist_id]
-      @artist = Artist.find_by(params[:artist_id])
+      @artist = Artist.find(params[:artist_id])
       if @artist
         @song = @artist.songs.find(params[:song_id])
       else
