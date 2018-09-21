@@ -2,12 +2,10 @@ class SongsController < ApplicationController
   def index
     binding.pry
     if params[:artist_id]
-      @artist = Artist.find(params[:artist_id])
-      if @artist
-        @songs = @artist.songs
-      else
-        flash[:alert] = 'Artist not found.'
-      end
+      @songs = Artist.find(params[:artist_id]).songs
+    else
+      flash[:alert] = 'Artist not found.'
+      @songs = Song.all
     end
   end
 
