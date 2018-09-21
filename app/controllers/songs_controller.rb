@@ -1,12 +1,12 @@
 class SongsController < ApplicationController
   def index
     if params[:artist_id]
+      binding.pry
       if Artist.find(params[:artist_id])
         @songs = Artist.find(params[:artist_id]).songs
       else
         flash[:alert] = "Artist not found."
         @songs = Song.all
-        redirect 'songs/index'
       end
     else
       @songs = Song.all
